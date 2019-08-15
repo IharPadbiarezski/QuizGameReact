@@ -3,20 +3,31 @@ import Answer from './Answer';
 
 class Answers extends Component {
     state = {
-        answer_1: "Ihar",
-        answer_2: "Jerry",
-        answer_3: "Tom",
-        answer_4: "Bred"
+        answer: '',
+        answer2: ''
+    }
+
+    answerInformation = (active, answer2) => {
+        this.setState({
+            answer2: answer2
+        })
+        console.log(this.state.answer2)
     }
     
+    
     render() {
+        const {answers} = this.props;
         return(
-            <ul className="answers-container answers">
-                <Answer answer={this.state.answer_1} />
-                <Answer answer={this.state.answer_2} />
-                <Answer answer={this.state.answer_3} />
-                <Answer answer={this.state.answer_4} />
+            <div>
+<ul className="answers-container answers">
+                <Answer answerInformation={this.answerInformation} answer={answers[0]} />
+                <Answer answerInformation={this.answerInformation} answer={answers[1]} />
+                <Answer answerInformation={this.answerInformation} answer={answers[2]} />
+                <Answer answerInformation={this.answerInformation} answer={answers[3]} />
             </ul>
+            <p>{this.state.answer}</p>
+            </div>
+
         )
     }
 }

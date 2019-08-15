@@ -1,57 +1,77 @@
 import React, { Component } from 'react';
+import Cookies from '../cookies';
 
 class Form extends Component {
 	state = {
-		userName: ''
-	};
+        name: '',
+        email: ''
+    };
+    
+    // componentDidMount() {
+        
+    //     setTimeout(() => {
+    //         const name = Cookies.readCookie("name");
+    //         if (name) {
+    //             this.setState({
+    //                 name: name
+    //             })
+    //         }
+    //     }, 2000)
+    //     // console.log(name)
+    //     // this.setState({
+    //     //     name: "dsfds"
+    //     // })
+    // }
 
 	handleSubmit = (e) => {
 		e.preventDefault();
 
-        const { userName } = this.state;
-        console.log(userName)
-
+        const { name, email } = this.state;
+        Cookies.createCookie("name", name)
+        this.props.userInformation(name, email);
 	};
 
 	handleChange = (e) => {
-		const { value } = e.target;
+		const { name, value } = e.target;
 
 		this.setState({
-			userName: value
+			[name]: value
 		});
 	};
 
 	validateForm = () => {
-		const { userName } = this.state;
+		const { name, email } = this.state;
 
-		const notValid = !userName;
+		const notValid = !name && !email;
 
 		return notValid;
 	};
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form className="registration__form" onSubmit={this.handleSubmit}>
 				<div>
-					<label>Name</label>
+					<label className="registration_label">Name</label>
 					<input
 						onChange={this.handleChange}
 						id="name"
-						name="name"
-						className="u-full-width"
+                        name="name"
+                        type="text"
+						className="u-full-width registration__input"
 						placeholder="vasya"
 					/>
 				</div>
-				{/* <div className="row">
-					<label>Months to Repay</label>
-					<select onChange={this.handleChange} name="term" className="u-full-width">
-						<option value="">Select</option>
-						<option value="3">3 Months</option>
-						<option value="6">6 Months</option>
-						<option value="12">12 Months</option>
-						<option value="24">24 Months</option>
-					</select>
-				</div> */}
+                <div>
+                <label className="registration_label">Email</label>
+					<input
+						onChange={this.handleChange}
+						id="email"
+                        name="email"
+                        type="email"
+						className="u-full-width registration__input"
+						placeholder="example@gmail.com"
+					/>
+                </div>
 				<div>
 					<input
 						disabled={this.validateForm()}

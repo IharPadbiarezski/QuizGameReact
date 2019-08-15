@@ -42,10 +42,10 @@ form,
 .messages {
 	padding: 2rem;
 	max-width: 600px;
-	margin: 0 auto;
+	margin: 200px auto;
 }
 
-form label {
+.registration_label {
 	text-align: center;
 	font-size: 2rem;
 }
@@ -100,7 +100,7 @@ h4 {
 .answer {
   width: 45%;
   text-align: center;
-  height: 80px;
+  min-height: 80px;
   line-height: 80px;
   font-size: 30px;
   text-transform: uppercase;
@@ -109,12 +109,18 @@ h4 {
   /* user-select: none; */
 }
 
+.answer.active {
+  background: #008000;
+}
+
 .category {
-  margin: 20px;
+  margin: 0 20px;
+  font-size: 20px;
+  color: #5eff00;
 }
 
 .totals {
-  margin: 20px;
+  margin: 0 20px;
 }
 
 .badge {
@@ -142,4 +148,18 @@ h4 {
 .game-header-flex {
   display: flex;
   justify-content: space-between;
+}
+
+.registration__form {
+  color: #ffffff;
+}
+
+.registration__input {
+  color: #525050;
+}
+
+.greeting {
+  text-align: center;
+  color: #ffffff;
+  background: #008000;
 }

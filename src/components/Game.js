@@ -14,8 +14,10 @@ class GameBoard extends Component {
     render() {
         return(
             <Fragment>
-                <Category />
-                <Badges />
+                <div className="game-header-container game-header-flex">
+                    <Category value="Life style" />
+                    <Badges />
+                </div>
                 <Question />
                 <Answers />
                 <div className="buttons-container buttons-flex">

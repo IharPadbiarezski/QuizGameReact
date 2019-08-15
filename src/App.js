@@ -4,6 +4,7 @@ import './skeleton.css';
 import Spinner from './components/Spinner';
 import Form from './components/Form';
 import GameBoard from './components/Game';
+import Results from './components/Results';
 
 class App extends Component {
 
@@ -33,74 +34,12 @@ class App extends Component {
     return (
       <Fragment>
         <div>{component}</div>
-        {/* <Form /> */}
+        <Results correct={7} uncorrect={3} position={3} />
+        <Spinner />
       </Fragment>
     )
   }
-  
-	// state = {
-	// 	total: '',
-	// 	amount: '',
-	// 	term: '',
-	// 	loading: false
-	// };
 
-	// loanInformation = (amount, term) => {
-	// 	// const total = calculateTotal(amount, term);
-
-	// 	this.setState(
-	// 		{
-	// 			loading: true
-	// 		},
-	// 		() => {
-	// 			setTimeout(() => {
-	// 				this.setState({
-	// 					amount,
-	// 					total,
-	// 					term,
-	// 					loading: false
-	// 				});
-	// 			}, 3000);
-	// 		},
-	// 		() => {
-	// 			setTimeout(() => {
-	// 				this.setState({
-	// 					amount: "",
-	// 					total: "",
-	// 					term: "",
-	// 					loading: false
-	// 				});
-	// 			}, 6000);
-	// 		},
-	// 	);
-	// };
-
-	// render() {
-	// 	// destructuring the state
-	// 	const { term, amount, total, loading } = this.state;
-
-	// 	// Conditionaly Render a Component
-
-	// 	let component;
-	// 	if (total === '' && !loading) {
-	// 		component = <Message />;
-	// 	} else if (loading) {
-	// 		component = <Spinner />;
-	// 	} else {
-	// 		component = <Result total={total} amount={amount} term={term} />;
-	// 	}
-	// 	return (
-	// 		<Fragment>
-	// 			<h1>Loan Calculator</h1>
-
-	// 			<div className="container">
-	// 				<Form loanInformation={this.loanInformation} />
-
-	// 				<div className="messages">{component}</div>
-	// 			</div>
-	// 		</Fragment>
-	// 	);
-	// }
 }
 
 export default App;

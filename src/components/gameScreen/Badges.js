@@ -3,9 +3,9 @@ import Badge from './Badge';
 
 const Badges = () => {
     return(
-        <div>
-            <Badge value={0} />
-            <Badge value={1} />
+        <div className="totals">
+            <Badge value={0} class="badge badge-success" />
+            <Badge value={1} class="badge badge-danger" />
         </div>
     )
 }

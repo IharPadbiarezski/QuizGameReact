@@ -7,7 +7,7 @@ class Answer extends Component {
 
     render() {
         return (
-           <li className="answer">{this.state.answer}</li> 
+           <li className="answer">{this.props.answer}</li> 
         )
     }
 }

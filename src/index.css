@@ -1,0 +1,106 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(90deg, #a39ccf 0%, #5f659c 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+h1 {
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 2rem;
+	font-weight: bold;
+}
+
+.container {
+	background: white;
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-top: 2rem;
+	min-height: 80vh;
+}
+
+form,
+.messages {
+	padding: 2rem;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+form label {
+	text-align: center;
+	font-size: 2rem;
+}
+
+input[type="submit"]:disabled {
+	opacity: .5;
+}
+
+.messages {
+	text-align: center;
+}
+
+.result {
+	border: 2px solid #00b0d7;
+	padding: 3rem 0;
+}
+
+h4 {
+  color: #ffffff;
+}
+
+.question {
+  text-align: center;
+}
+
+.buttons-flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.check__button {
+  background: #24ccff;
+  color: #ffffff;
+}
+
+.clear__button {
+  background: #f0260b;
+  color: #ffffff;
+}
+
+.answers {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.answer {
+  width: 45%;
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+  font-size: 30px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background: #ffff00;
+  /* user-select: none; */
+}

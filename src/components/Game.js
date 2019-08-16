@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import Category from './gameScreen/Category';
 import Question from './gameScreen/Question';
 import Answers from './gameScreen/Answers';
-// import Button from './gameScreen/Button';
 import Badges from './gameScreen/Badges';
 import Spinner from './Spinner';
 import Greeting from './Greeting';
@@ -16,15 +15,16 @@ class GameBoard extends Component {
             data: [],
             isLoading: false,
             answer: '',
+            countOfQuestions: 0,
             correctAnswersAmount: 0,
             incorrectAnswersAmount: 0
         };
-        this.answerInformation = this.answerInformation.bind(this);
     }
 
     answerInformation = (userAnswer) => {
-        let { correctAnswersAmount, incorrectAnswersAmount } = this.state;
+        let { correctAnswersAmount, incorrectAnswersAmount, countOfQuestions } = this.state;
         const { correct_answer } = this.state.data;
+        countOfQuestions++;
         if (userAnswer === correct_answer) {
             correctAnswersAmount = correctAnswersAmount + 1
         }
@@ -34,13 +34,19 @@ class GameBoard extends Component {
 		this.setState({
             answer: userAnswer,
             correctAnswersAmount,
-            incorrectAnswersAmount
+            incorrectAnswersAmount,
+            countOfQuestions
         });
-        this.getQuestion();
+        if (countOfQuestions === 10) {
+            this.props.gameInformation(correctAnswersAmount, incorrectAnswersAmount);
+        }
+        else {
+            this.getQuestion();
+        }
     };
 
     getQuestion() {
-        this.setState({ isLoading: true })
+        this.setState({ isLoading: true, data: [{question: ""}] })
         fetch(API)
         .then(response => response.json())
         .then(data => {
@@ -63,11 +69,15 @@ class GameBoard extends Component {
         const {category, question, correct_answer} = this.state.data;
         const {isLoading, answers, correctAnswersAmount, incorrectAnswersAmount} = this.state;
         const {name} = this.props;
-        console.log(correctAnswersAmount, incorrectAnswersAmount)
+        let mainContent;
         if (isLoading) {
-            return(
-                <Spinner />
-            )
+                mainContent = <Spinner />
+        }
+        else {
+            mainContent = <div>
+                <Question question={question} />
+                <Answers answerInformation={this.answerInformation} correctAnswer={correct_answer} answers={answers || []} />
+            </div>
         }
         return(
             <Fragment >
@@ -76,12 +86,7 @@ class GameBoard extends Component {
                     <Category value={ category } />
                     <Badges correctAnswersAmount={correctAnswersAmount} incorrectAnswersAmount={incorrectAnswersAmount} />
                 </div>
-                <Question question={question} />
-                <Answers answerInformation={this.answerInformation} correctAnswer={correct_answer} answers={answers || []} />
-                {/* <div className="buttons-container buttons-flex">
-                    <Button id={"check-button"} class={"check__button"} value={"Check"}/>
-                    <Button id={"clear-button"} class={"clear__button"} value={"Clear Results"}/>
-                </div> */}
+                {mainContent}
             </Fragment>
         )
     }

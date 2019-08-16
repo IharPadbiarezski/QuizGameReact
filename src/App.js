@@ -6,12 +6,18 @@ import GameBoard from './components/Game';
 import Results from './components/Results';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isUser: false,
+      completed: false,
+      name: '',
+      email: '',
+      correctAnswersAmount: '',
+      incorrectAnswersAmount: ''
+    }
 
-  state = {
-    isUser: false,
-    complited: false,
-    name: '',
-    email: ''
+    this.startGame = this.startGame.bind(this);
   }
 
   userInformation = (name, email) => {
@@ -20,22 +26,39 @@ class App extends Component {
         name,
         email
 			});
-	};
+  };
+  
+  gameInformation = (correctAnswersAmount, incorrectAnswersAmount) => {
+		this.setState({
+        completed: true,
+        correctAnswersAmount,
+        incorrectAnswersAmount
+			});
+  };
+  
+  startGame = () => {
+    this.setState({
+      completed: false
+    })
+  }
 
   render() {
-    const {isUser, complited} = this.state;
+    const {isUser, completed, correctAnswersAmount, incorrectAnswersAmount} = this.state;
 
     let component;
 
     if (!isUser) {
       component  = <Form userInformation={this.userInformation} />;
     }
-    else if (isUser && !complited) {
+    else if (isUser && !completed) {
       const {name} = this.state;
-      component = <GameBoard name={name} />
+      component = <GameBoard gameInformation={this.gameInformation} name={name} />
     }
     else {
-      component = <Results correct={7} incorrect={3} position={3} />
+      component = <div className="results-container">
+          <Results correct={correctAnswersAmount} incorrect={incorrectAnswersAmount} position={3} />
+          <button id="start-button" onClick={this.startGame} className="start__button">Start Again</button>
+        </div>
     }
     return (
       <Fragment>

@@ -7,26 +7,9 @@ class Answers extends Component {
         selectedOption: ''
     }
 
-	// handleChange = (e) => {
-	// 	const { name, value } = e.target;
-
-	// 	this.setState({
-	// 		[name]: value
-	// 	});
-	// };
-
-	// validateForm = () => {
-	// 	const { name, email } = this.state;
-
-	// 	const notValid = !name && !email;
-
-	// 	return notValid;
-	// };
-
     handleSubmit = (event) => {
         event.preventDefault();
-      
-        console.log('You have selected:', this.state.selectedOption);
+
         this.props.answerInformation(this.state.selectedOption);
     }
 
@@ -66,58 +49,35 @@ class Answers extends Component {
                             {answers[1]}
                         </label>
                     </div>
-                    <div className={selectedOption === answers[2] ? "answer active" : "answer"}>
-                        <label>
-                            <input className="radio__input" type="radio" value={answers[2]}
-                                        checked={selectedOption === answers[2]} 
-                                        onChange={this.handleOptionChange} />
-                            {answers[2]}
-                        </label>
-                    </div>
-                    <div className={selectedOption === answers[3] ? "answer active" : "answer"}>
+                    {
+                        answers[2] ? 
+                        <div className={selectedOption === answers[2] ? "answer active" : "answer"}>
+                            <label>
+                                <input className="radio__input" type="radio" value={answers[2]}
+                                            checked={selectedOption === answers[2]} 
+                                            onChange={this.handleOptionChange} />
+                                {answers[2]}
+                            </label>
+                        </div> : null
+                    }
+                    {
+                        answers[3] ? 
+                        <div className={selectedOption === answers[3] ? "answer active" : "answer"}>
                         <label>
                             <input type="radio" className="radio__input" value={answers[3]} 
                                         checked={selectedOption === answers[3]} 
                                         onChange={this.handleOptionChange} />
                             {answers[3]}
                         </label>
-                    </div>
+                    </div> : null
+                }
                 </div>
                 <div className="buttons-container buttons-flex">
                     <button id="check-button" className="check__button button-primary" type="submit" disabled={this.validateForm()} >Check</button>
-                    <button id="clear-button" className="clear__button">Clear Results</button>
                 </div> 
             </form>
         )
     }
-    // state = {
-    //     answer: '',
-    //     answer2: ''
-    // }
-
-    // answerInformation = (active, answer2) => {
-    //     this.setState({
-    //         answer2: answer2
-    //     })
-    //     console.log(this.state.answer2)
-    // }
-    
-    
-    // render() {
-    //     const {answers} = this.props;
-    //     return(
-    //         <div>
-    //         <ul className="answers-container answers">
-    //             <Answer answerInformation={this.answerInformation} answer={answers[0]} />
-    //             <Answer answerInformation={this.answerInformation} answer={answers[1]} />
-    //             <Answer answerInformation={this.answerInformation} answer={answers[2]} />
-    //             <Answer answerInformation={this.answerInformation} answer={answers[3]} />
-    //         </ul>
-    //         <p>{this.state.answer}</p>
-    //         </div>
-
-    //     )
-    // }
 }
 
 export default Answers;

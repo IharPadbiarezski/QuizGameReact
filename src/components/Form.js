@@ -1,33 +1,27 @@
 import React, { Component } from 'react';
-import Cookies from '../cookies';
+// import Cookies from '../cookies';
+import Storage from '../localStorage';
 
 class Form extends Component {
 	state = {
         name: '',
         email: ''
     };
-    
-    // componentDidMount() {
-        
-    //     setTimeout(() => {
-    //         const name = Cookies.readCookie("name");
-    //         if (name) {
-    //             this.setState({
-    //                 name: name
-    //             })
-    //         }
-    //     }, 2000)
-    //     // console.log(name)
-    //     // this.setState({
-    //     //     name: "dsfds"
-    //     // })
-    // }
+	
+	componentDidMount() {
+		const user = Storage.getItemFromStorage('user') || '';
+		const { name, email } = user;
+		console.log(name, email)
+		this.setState({
+			name,
+			email
+		});
+	  }
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-
         const { name, email } = this.state;
-        Cookies.createCookie("name", name)
+		Storage.saveIntoStorage( "user", {name, email})
         this.props.userInformation(name, email);
 	};
 
@@ -59,6 +53,7 @@ class Form extends Component {
                         type="text"
 						className="u-full-width registration__input"
 						placeholder="vasya"
+						value={this.state.name || ''}
 					/>
 				</div>
                 <div>
@@ -70,6 +65,7 @@ class Form extends Component {
                         type="email"
 						className="u-full-width registration__input"
 						placeholder="example@gmail.com"
+						value={this.state.email || ''}
 					/>
                 </div>
 				<div>

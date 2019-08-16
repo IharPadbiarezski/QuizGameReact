@@ -5,6 +5,7 @@ import Answers from './gameScreen/Answers';
 import Badges from './gameScreen/Badges';
 import Spinner from './Spinner';
 import Greeting from './Greeting';
+import StorageForMany from '../localStorageForMany';
 
 const API = "https://opentdb.com/api.php?amount=1";
 
@@ -24,6 +25,7 @@ class GameBoard extends Component {
     answerInformation = (userAnswer) => {
         let { correctAnswersAmount, incorrectAnswersAmount, countOfQuestions } = this.state;
         const { correct_answer } = this.state.data;
+        const { name } = this.props;
         countOfQuestions++;
         if (userAnswer === correct_answer) {
             correctAnswersAmount = correctAnswersAmount + 1
@@ -38,6 +40,12 @@ class GameBoard extends Component {
             countOfQuestions
         });
         if (countOfQuestions === 10) {
+            const result = {
+                correctAnswersAmount,
+                incorrectAnswersAmount,
+                name
+            }
+            StorageForMany.saveIntoStorage("results", result)
             this.props.gameInformation(correctAnswersAmount, incorrectAnswersAmount);
         }
         else {

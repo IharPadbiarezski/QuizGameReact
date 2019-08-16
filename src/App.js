@@ -4,6 +4,7 @@ import './skeleton.css';
 import Form from './components/Form';
 import GameBoard from './components/Game';
 import Results from './components/Results';
+import StorageForMany from './localStorageForMany';
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class App extends Component {
   }
 
   render() {
-    const {isUser, completed, correctAnswersAmount, incorrectAnswersAmount} = this.state;
+    const {isUser, completed, correctAnswersAmount, incorrectAnswersAmount, name} = this.state;
 
     let component;
 
@@ -56,7 +57,7 @@ class App extends Component {
     }
     else {
       component = <div className="results-container">
-          <Results correct={correctAnswersAmount} incorrect={incorrectAnswersAmount} position={3} />
+          <Results correct={correctAnswersAmount} incorrect={incorrectAnswersAmount} name={name} position={StorageForMany.getPositionLocalStorage("results", name)} />
           <button id="start-button" onClick={this.startGame} className="start__button">Start Again</button>
         </div>
     }

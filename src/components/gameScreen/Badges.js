@@ -1,11 +1,11 @@
 import React from 'react';
 import Badge from './Badge';
 
-const Badges = () => {
+const Badges = (props) => {
     return(
         <div className="totals">
-            <Badge value={0} class="badge badge-success" />
-            <Badge value={1} class="badge badge-danger" />
+            <Badge value={props.correctAnswersAmount} class="badge badge-success" />
+            <Badge value={props.incorrectAnswersAmount} class="badge badge-danger" />
         </div>
     )
 }

@@ -38,7 +38,7 @@ h1 {
 	min-height: 80vh;
 }
 
-form,
+form.registration__form,
 .messages {
 	padding: 2rem;
 	max-width: 600px;
@@ -50,7 +50,8 @@ form,
 	font-size: 2rem;
 }
 
-input[type="submit"]:disabled {
+input[type="submit"]:disabled,
+button[type="submit"]:disabled {
 	opacity: .5;
 }
 
@@ -97,6 +98,10 @@ h4 {
   justify-content: space-around;
 }
 
+.radio__input {
+  visibility: hidden;
+}
+
 .answer {
   width: 45%;
   text-align: center;
@@ -106,7 +111,8 @@ h4 {
   text-transform: uppercase;
   border-radius: 10px;
   background: #ffff00;
-  /* user-select: none; */
+  cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .answer.active {
@@ -143,6 +149,7 @@ h4 {
 .badge-success {
   color: #ffffff;
   background-color: #008000;
+  margin-right: 15px;
 }
 
 .game-header-flex {

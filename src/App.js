@@ -35,7 +35,7 @@ class App extends Component {
       component = <GameBoard name={name} />
     }
     else {
-      component = <Results correct={7} uncorrect={3} position={3} />
+      component = <Results correct={7} incorrect={3} position={3} />
     }
     return (
       <Fragment>

@@ -6,7 +6,7 @@ class Results extends Component {
             <div className="result">
                 <h2>Results:</h2>
                 <p>Correct Answers: {this.props.correct}</p>
-                <p>Uncorrect Answers: {this.props.uncorrect}</p>
+                <p>Incorrect Answers: {this.props.incorrect}</p>
                 <p>Your Position: {this.props.position}</p>
 		    </div>
         )

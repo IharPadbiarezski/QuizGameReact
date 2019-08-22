@@ -10,7 +10,7 @@ class Answer extends Component {
         this.selectAnswer = this.selectAnswer.bind(this);
     }
 
-    selectAnswer = (e, b) => {
+    selectAnswer = (e) => {
         this.setState({
             active: true,
             answer: e.target.textContent

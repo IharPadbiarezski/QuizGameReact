@@ -18,16 +18,17 @@ code {
     monospace;
 }
 
-h2 {
-  color: #ffffff;
-}
-
 h1 {
 	color: white;
 	text-transform: uppercase;
 	text-align: center;
 	margin-top: 2rem;
 	font-weight: bold;
+}
+
+h2,
+h4 {
+  color: #ffffff;
 }
 
 .container {
@@ -38,8 +39,7 @@ h1 {
 	min-height: 80vh;
 }
 
-form.registration__form,
-.messages {
+form.registration__form {
 	padding: 2rem;
 	max-width: 600px;
 	margin: 200px auto;
@@ -65,32 +65,11 @@ button[type="submit"]:disabled {
   align-items: center;
 }
 
-.messages {
-  text-align: center;
-}
-
-.result {
-  border: 2px solid #00b0d7;
-  background: #5eff00;
-  padding: 3rem 1rem;
-  width: 400px;
-  text-align: center;
-  margin: 150px 0 50px;
-}
-
 .start__button {
   width: 30%;
   height: 50px;
   background: #008000;
   color: #ffffff;
-  text-align: center;
-}
-
-h4 {
-  color: #ffffff;
-}
-
-.question {
   text-align: center;
 }
 
@@ -137,39 +116,6 @@ h4 {
   background: #008000;
 }
 
-.category {
-  margin: 0 20px;
-  font-size: 20px;
-  color: #5eff00;
-}
-
-.totals {
-  margin: 0 20px;
-}
-
-.badge {
-  font-size: 20px;
-  display: inline-block;
-  padding: 10px 15px;
-  margin-left: 5px;
-  font-weight: 700;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 5px;
-}
-
-.badge-danger {
-  color: #ffffff;
-  background-color: #ff0000;
-}
-
-.badge-success {
-  color: #ffffff;
-  background-color: #008000;
-  margin-right: 15px;
-}
-
 .game-header-flex {
   display: flex;
   justify-content: space-between;
@@ -181,10 +127,4 @@ h4 {
 
 .registration__input {
   color: #525050;
-}
-
-.greeting {
-  text-align: center;
-  color: #ffffff;
-  background: #008000;
 }

@@ -1,9 +1,9 @@
 import React, { Component, Fragment} from 'react';
 import './normalize.css';
 import './skeleton.css';
-import Form from './components/Form';
-import GameBoard from './components/Game';
-import Results from './components/Results';
+import Form from './components/Form/';
+import GameBoard from './components/GameBoard';
+import Results from './components/Results/';
 import StorageForMany from './localStorageForMany';
 
 class App extends Component {
@@ -57,7 +57,7 @@ class App extends Component {
     }
     else {
       component = <div className="results-container">
-          <Results correct={correctAnswersAmount} incorrect={incorrectAnswersAmount} name={name} position={StorageForMany.getPositionLocalStorage("results", name)} />
+          <Results correctAnswersAmount={correctAnswersAmount} incorrectAnswersAmount={incorrectAnswersAmount} name={name} position={StorageForMany.getPositionLocalStorage("results", name)} />
           <button id="start-button" onClick={this.startGame} className="start__button">Start Again</button>
         </div>
     }

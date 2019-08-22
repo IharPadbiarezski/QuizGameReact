@@ -1,0 +1,8 @@
+.results {
+    border: 2px solid #00b0d7;
+    background: #5eff00;
+    padding: 3rem 1rem;
+    width: 400px;
+    text-align: center;
+    margin: 150px 0 50px;
+}

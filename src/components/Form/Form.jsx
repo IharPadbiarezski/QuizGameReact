@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import Cookies from '../cookies';
-import Storage from '../localStorage';
+import Storage from '../../localStorage';
 
 class Form extends Component {
 	state = {
@@ -11,7 +10,6 @@ class Form extends Component {
 	componentDidMount() {
 		const user = Storage.getItemFromStorage('user') || '';
 		const { name, email } = user;
-		console.log(name, email)
 		this.setState({
 			name,
 			email

@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import Category from './gameScreen/Category';
-import Question from './gameScreen/Question';
-import Answers from './gameScreen/Answers';
-import Badges from './gameScreen/Badges';
-import Spinner from './Spinner';
-import Greeting from './Greeting';
-import StorageForMany from '../localStorageForMany';
+import Category from '../Category';
+import Question from '../Question';
+import Answers from '../Answers';
+import Badges from '../Badges';
+import Spinner from '../Spinner/';
+import Greeting from '../Greeting/';
+import StorageForMany from '../../localStorageForMany';
 
 const API = "https://opentdb.com/api.php?amount=1";
 

@@ -5,6 +5,7 @@ import Form from './components/Form/';
 import GameBoard from './components/GameBoard';
 import Results from './components/Results/';
 import StorageForMany from './localStorageForMany';
+import Button from './components/Button/';
 
 class App extends Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class App extends Component {
     else {
       component = <div className="results-container">
           <Results correctAnswersAmount={correctAnswersAmount} incorrectAnswersAmount={incorrectAnswersAmount} name={name} position={StorageForMany.getPositionLocalStorage("results", name)} />
-          <button id="start-button" onClick={this.startGame} className="start__button">Start Again</button>
+          <Button id="start-button" onClick={this.startGame} buttonClassName="start__button" value="Start Again" />
         </div>
     }
     return (

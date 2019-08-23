@@ -6,6 +6,7 @@ import Badges from '../Badges';
 import Spinner from '../Spinner/';
 import Greeting from '../Greeting/';
 import StorageForMany from '../../localStorageForMany';
+import './GameBoard.css';
 
 const API = "https://opentdb.com/api.php?amount=1";
 

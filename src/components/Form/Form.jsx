@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LabelledInput from '../LabelledInput/';
+import './Form.css';
 import Storage from '../../localStorage';
 
 class Form extends Component {
@@ -43,35 +45,37 @@ class Form extends Component {
 		return (
 			<form className="registration__form" onSubmit={this.handleSubmit}>
 				<div>
-					<label className="registration_label">Name</label>
-					<input
+					<LabelledInput
+						label="Name"
+						labelClassName="registration__label"
 						onChange={this.handleChange}
 						id="name"
                         name="name"
                         type="text"
-						className="u-full-width registration__input"
+						inputClassName="u-full-width registration__input"
 						placeholder="vasya"
-						value={this.state.name || ''}
+						defaultValue={this.state.name || ''}
 					/>
 				</div>
                 <div>
-                <label className="registration_label">Email</label>
-					<input
+					<LabelledInput
+						label="Email"
+						labelClassName="registration__label"
 						onChange={this.handleChange}
 						id="email"
                         name="email"
                         type="email"
-						className="u-full-width registration__input"
+						inputClassName="u-full-width registration__input"
 						placeholder="example@gmail.com"
-						value={this.state.email || ''}
+						defaultValue={this.state.email || ''}
 					/>
                 </div>
 				<div>
-					<input
+					<LabelledInput 
 						disabled={this.validateForm()}
 						type="submit"
-						value="Start"
-						className="u-full-width button-primary"
+						defaultValue="Start"
+						inputClassName="u-full-width button-primary"
 					/>
 				</div>
 			</form>

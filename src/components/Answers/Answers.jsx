@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-// import Answer from './Answer';
+import Answer from '../Answer';
+import './Answers.css';
+import LabelledInput from '../LabelledInput/';
 
 class Answers extends Component {
 
     state = {
-        selectedOption: ''
+        selectedOption: '',
     }
 
     handleSubmit = (event) => {
@@ -15,7 +17,7 @@ class Answers extends Component {
 
     handleOptionChange = (event) => {
         this.setState({
-          selectedOption: event.target.value
+          selectedOption: event.target.value,
         });
     }
 
@@ -33,47 +35,45 @@ class Answers extends Component {
         return(
             <form onSubmit={this.handleSubmit}>
                 <div className="answers-container answers">
-                    <div className={selectedOption === answers[0] ? "answer active" : "answer"}>
-                        <label>
-                            <input type="radio" className="radio__input" value={answers[0]} 
-                                        checked={selectedOption === answers[0]} 
-                                        onChange={this.handleOptionChange} />
-                            {answers[0]}
-                        </label>
-                    </div>
-                    <div className={selectedOption === answers[1] ? "answer active" : "answer"}>
-                        <label>
-                            <input type="radio" className="radio__input" value={answers[1]} 
-                                        checked={selectedOption === answers[1]} 
-                                        onChange={this.handleOptionChange} />
-                            {answers[1]}
-                        </label>
-                    </div>
                     {
-                        answers[2] ? 
-                        <div className={selectedOption === answers[2] ? "answer active" : "answer"}>
-                            <label>
-                                <input className="radio__input" type="radio" value={answers[2]}
-                                            checked={selectedOption === answers[2]} 
-                                            onChange={this.handleOptionChange} />
-                                {answers[2]}
-                            </label>
-                        </div> : null
+                        answers[0] ? 
+                        <Answer
+                            selectedOption={ selectedOption }
+                            answer={ answers[0] }
+                            onChange={ this.handleOptionChange }
+                        /> : null
                     }
                     {
-                        answers[3] ? 
-                        <div className={selectedOption === answers[3] ? "answer active" : "answer"}>
-                        <label>
-                            <input type="radio" className="radio__input" value={answers[3]} 
-                                        checked={selectedOption === answers[3]} 
-                                        onChange={this.handleOptionChange} />
-                            {answers[3]}
-                        </label>
-                    </div> : null
+                        answers[1] ? 
+                        <Answer
+                            selectedOption={ selectedOption }
+                            answer={ answers[1] }
+                            onChange={ this.handleOptionChange }
+                        /> : null
+                    }
+                    {
+                        answers[2] ? 
+                        <Answer selectedOption={ selectedOption }
+                        answer={ answers[2] }
+                        onChange={ this.handleOptionChange }
+                        /> : null
+                    }
+                    {
+                        answers[3] ? <Answer
+                            selectedOption={ selectedOption }
+                            answer={ answers[3] }
+                            onChange={ this.handleOptionChange }
+                            /> : null
                 }
                 </div>
                 <div className="buttons-container buttons-flex">
-                    <button id="check-button" className="check__button button-primary" type="submit" disabled={this.validateForm()} >Check</button>
+                    <LabelledInput
+                        id="check-button"
+                        className="check__button button-primary"
+                        type="submit"
+                        disabled={this.validateForm()}
+                        defaultValue="Check"
+                    />
                 </div> 
             </form>
         )

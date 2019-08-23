@@ -1,0 +1,37 @@
+.check__button {
+    background: #24ccff;
+    color: #ffffff;
+}
+
+.answers {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+  
+.radio__input {
+    visibility: hidden;
+}
+  
+.answer {
+    width: 45%;
+    text-align: center;
+    min-height: 80px;
+    line-height: 80px;
+    font-size: 30px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    background: #ffff00;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+  
+.answer.active {
+    background: #008000;
+}
+
+.buttons-flex {
+    display: flex;
+    justify-content: space-around;
+}

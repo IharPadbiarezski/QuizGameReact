@@ -1,0 +1,10 @@
+.registration__form {
+	padding: 2rem;
+	max-width: 600px;
+    margin: 200px auto;
+}
+
+.registration__label {
+	text-align: center;
+	font-size: 2rem;
+}
